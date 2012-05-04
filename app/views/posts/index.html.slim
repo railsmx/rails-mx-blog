@@ -1,2 +1,7 @@
 - (1..3).each do
   = render 'post'
+
+- content_for :archive do
+  ul
+    - (1..10).each do
+      li= link_to Faker::Lorem.sentence, '#'

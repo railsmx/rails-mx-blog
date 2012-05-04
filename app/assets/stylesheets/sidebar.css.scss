@@ -1,0 +1,17 @@
+$gray: #777;
+$red: #9C3228;
+
+#sidebar {
+  h1 {
+    color: $gray;
+    font-size: 16px;
+  }
+
+  a {
+    color: $red;
+  }
+
+  li {
+    color: $gray;
+  }
+}

@@ -10,5 +10,5 @@ html
     = render 'navbar'
 
     .row
-      .span2 Link sidebar
-      .span8.offset1= yield
+      #sidebar.span2= render 'sidebar'
+      #content.span8.offset1= yield
