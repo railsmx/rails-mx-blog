@@ -1,0 +1,6 @@
+.post
+  h1 Post
+  .author
+    .name= Faker::Name.name
+    .email= Faker::Internet.email
+  .body= Faker::Lorem.paragraph 100
