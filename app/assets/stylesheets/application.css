@@ -10,5 +10,6 @@
  *
  *= require_self
  *= require bootstrap/import
+ *= require fonts
  *= require_tree .
 */
