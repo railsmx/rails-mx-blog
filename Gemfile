@@ -2,10 +2,8 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.2'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-gem 'sqlite3'
+gem 'pg', group: 'production'
+gem 'sqlite3', group: 'development'
 
 
 # Gems used only for assets and not required
@@ -14,29 +12,33 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
 
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer'
-
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'bootstrap-sass'
+gem 'backbone-rails'
+gem 'carrierwave'
+gem 'devise'
+gem 'crowdblog'
+gem 'eco'
+gem 'fog'
 gem 'faker'
+gem 'gravtastic'
 gem 'jquery-rails'
+gem 'less-rails-bootstrap', '~> 2.0.4'
+gem 'newrelic_rpm'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-google-apps'
 gem 'quiet_assets'
+gem 'redcarpet'
+gem 'ruby-openid'
 gem 'slim-rails'
+gem 'slim_assets', '~> 0.0.2'
+gem 'simple_form'
+gem 'state_machine'
+gem 'unicorn'
+gem 'vestal_versions', git: 'https://github.com/jodosha/vestal_versions.git'
+gem 'yui-compressor'
 
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+# Required by less
+gem 'therubyracer'
 
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'

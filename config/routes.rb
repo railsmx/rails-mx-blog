@@ -1,5 +1,15 @@
 RailsMxBlog::Application.routes.draw do
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+
   root to: 'posts#index'
+
+  #match '/whatever', to: 'posts#index'
+
+  devise_scope :user do
+    match 'crowdblog_sign_in', to: 'users/omniauth_callbacks#crowdint'
+  end
+
+  mount Crowdblog::Engine => '/admin'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
