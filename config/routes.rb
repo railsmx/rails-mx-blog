@@ -9,6 +9,11 @@ RailsMxBlog::Application.routes.draw do
     match 'crowdblog_sign_in', to: 'users/omniauth_callbacks#crowdint'
   end
 
+  match '/:year/:month/:day/:id(.:format)', to: 'posts#show', as: 'post',
+    constraints: { year: /\d+/ }
+
+
+
   mount Crowdblog::Engine => '/admin'
 
   # The priority is based upon order of creation:

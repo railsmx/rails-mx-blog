@@ -1,6 +1,8 @@
 .post
-  h1 Post
+  h1= post.title
   .author
-    .name= Faker::Name.name
-    .email= Faker::Internet.email
-  .body= Faker::Lorem.paragraph 100
+    .name= post.author_name
+    .email= post.author_email
+    .date #{post.formatted_published_date}
+
+  .body= post.html_body
