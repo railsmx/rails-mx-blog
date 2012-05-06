@@ -13,6 +13,20 @@ $gray: #777;
     color: $gray;
   }
 
+  h2 {
+    font-size: 18px;
+    color: $gray;
+  }
+
+  h3 {
+    font-size: 16px;
+    color: $gray;
+  }
+
+  .author {
+    margin-bottom: 30px;
+  }
+
   .name {
     font-weight: bold;
   }
@@ -20,6 +34,11 @@ $gray: #777;
   .email {
     color: $red;
     font-weight: bold;
+    text-align: right;
+  }
+
+  .date {
+    text-align: center;
   }
 
   .body {
@@ -29,6 +48,8 @@ $gray: #777;
 
   p {
     font-size: 14px;
+    line-height: 20px;
+    margin: 7px 0 7px 0;
   }
 
   a {
@@ -38,7 +59,7 @@ $gray: #777;
   border-style: dotted;
   border-color: $gray;
   border-width: 0 0 1px 0;
-  margin: 0 0 20px 0;
-  padding: 0 0 20px 0;
+  margin: 0 0 50px 0;
+  padding: 0 0 50px 0;
 }
 

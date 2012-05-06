@@ -1,8 +1,8 @@
 .post
   h1= post.title
-  .author
-    .name= post.author_name
-    .email= post.author_email
-    .date #{post.formatted_published_date}
+  .author.row
+    .span3.name= post.author_name
+    .span2.date #{post.formatted_published_date}
+    .span3.email= post.author_email
 
   .body= post.html_body
