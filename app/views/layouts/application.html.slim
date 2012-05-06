@@ -2,13 +2,21 @@ doctype html
 html
   head
     title Blog de Rails MX
-  = stylesheet_link_tag    "application", :media => "all"
-  = javascript_include_tag "application"
-  = csrf_meta_tags
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    script src="http://yandex.st/highlightjs/6.2/highlight.min.js"
+    link rel="stylesheet" href="http://yandex.st/highlightjs/6.2/styles/sunburst.min.css"
+    = csrf_meta_tags
 
-  .container
-    = render 'navbar'
+    coffee:
+      $ ->
+        hljs.initHighlightingOnLoad()
 
-    .row
-      #sidebar.span2= render 'sidebar'
-      #content.span8.offset1= yield
+
+  body
+    .container
+      = render 'navbar'
+
+      .row
+        #sidebar.span2= render 'sidebar'
+        #content.span8.offset1= yield
