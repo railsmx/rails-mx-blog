@@ -1,5 +1,5 @@
 .post
-  h1= post.title
+  h1= link_to post.title, post_path(*post.url_params)
   .author.row
     .span3.name= post.author_name
     .span2.date #{post.formatted_published_date}

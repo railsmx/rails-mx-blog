@@ -12,7 +12,7 @@ RailsMxBlog::Application.routes.draw do
   match '/:year/:month/:day/:id(.:format)', to: 'posts#show', as: 'post',
     constraints: { year: /\d+/ }
 
-
+  match '/preview/:id', to: 'posts#show', constraints: { id: /\d+/ }, as: 'preview'
 
   mount Crowdblog::Engine => '/admin'
 
