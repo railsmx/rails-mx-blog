@@ -212,8 +212,7 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
 
-  config.omniauth :google_apps, :domain => 'rails.mx'
-
+  config.omniauth :google_apps, :domain => 'crowdint.com'
 
 
   # ==> Warden configuration
