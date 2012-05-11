@@ -49,9 +49,11 @@ end
 @csv = Itiel::Loader::CSVFile.new 'posts.csv', false
 
 # Set up the stream flow
-@posts.next_step  = @mapper
-@mapper.next_step = @script
-@script.next_step = @csv
+#@posts.next_step  = @mapper
+#@mapper.next_step = @script
+#@script.next_step = @csv
+
+@posts >> @mapper >> @script >> @csv
 
 # Start
 @posts.start
