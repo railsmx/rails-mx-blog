@@ -32,29 +32,26 @@ require ::File.expand_path('../../config/environment',  __FILE__)
     } }
 )
 
-# Loader
-@csv = Itiel::Loader::CSVFile.new 'posts.csv', false
-
-# Set up the stream flow
-@posts.next_step  = @mapper
-@mapper.next_step = @csv
-
-# Start
-@posts.start
-
-# Process the result
-# TODO: There should be a way to create a step on Itiel
-# that receives a block of Ruby code and does this task:
-#
-CSV.foreach('posts.csv', headers: true) do |row|
-  author = User.find_or_create_by_email(row['email'], row['login'])
+@script = Itiel::Scripting::RubyScript.new do |row|
+  author = User.find_or_create_by_email(row[:email], row[:login])
   post = Post.new
-  post.title = row['title']
-  post.body = row['content']
-  post.published_at = row['created_at']
+  post.title = row[:title]
+  post.body = row[:content]
+  post.published_at = row[:created_at]
   post.author = author
   post.regenerate_permalink
   post.save!
 
   post.publish!
 end
+
+# Loader
+@csv = Itiel::Loader::CSVFile.new 'posts.csv', false
+
+# Set up the stream flow
+@posts.next_step  = @mapper
+@mapper.next_step = @script
+@script.next_step = @csv
+
+# Start
+@posts.start
