@@ -32,13 +32,16 @@ require ::File.expand_path('../../config/environment',  __FILE__)
     } }
 )
 
+# Ruby script to create Post and User models
+# with the data extracted from the legacy database
 @script = Itiel::Scripting::RubyScript.new do |row|
   author = User.find_or_create_by_email(row[:email], row[:login])
-  post = Post.new
-  post.title = row[:title]
-  post.body = row[:content]
-  post.published_at = row[:created_at]
-  post.author = author
+  post = Post.new(
+    :title        => row[:title],
+    :body         => row[:content],
+    :published_at => row[:created_at],
+    :author       => author
+  )
   post.regenerate_permalink
   post.save!
 
@@ -49,10 +52,6 @@ end
 @csv = Itiel::Loader::CSVFile.new 'posts.csv', false
 
 # Set up the stream flow
-#@posts.next_step  = @mapper
-#@mapper.next_step = @script
-#@script.next_step = @csv
-
 @posts >> @mapper >> @script >> @csv
 
 # Start
